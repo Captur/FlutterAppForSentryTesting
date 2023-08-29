@@ -1,0 +1,23 @@
+{
+  "pins" : [
+    {
+      "identity" : "sentry-cocoa",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/getsentry/sentry-cocoa",
+      "state" : {
+        "revision" : "d062d9b31ccabdec706134f2216476d1996caf11",
+        "version" : "8.10.0"
+      }
+    },
+    {
+      "identity" : "swiftpackageforsentry",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Captur/SwiftPackageForSentry.git",
+      "state" : {
+        "revision" : "fdc5ac4e29796a8a8cc0845e87a874959152aa05",
+        "version" : "0.0.1"
+      }
+    }
+  ],
+  "version" : 2
+}
