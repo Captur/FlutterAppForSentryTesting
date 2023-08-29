@@ -30,14 +30,13 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   static const launchChannel = MethodChannel("event/launchChannel");
-  String batteryLevel = "Waiting";
 
   static Future<void> listenToCallbacks() async {
     launchChannel.setMethodCallHandler(_handleMethodCall);
   }
 
   static Future<void> _handleMethodCall(MethodCall call) async {
-    if (call.method == 'capturCallback') {
+    if (call.method == 'launchChannelCallback') {
       // Handle the callback from native iOS app
       print('Received callback from native: ${call.arguments}');
     }
@@ -51,20 +50,12 @@ class _HomePageState extends State<HomePage> {
           padding: const EdgeInsets.all(8.0),
           child: Column(
             children: [
-              Text(
-                batteryLevel,
-                textAlign: TextAlign.center,
-                style: const TextStyle(
-                  fontSize: 30,
-                  color: Colors.blue,
-                ),
-              ),
               const SizedBox(
                 height: 16,
               ),
               ElevatedButton(
-                onPressed: launchCaptur,
-                child: const Text("Launch Captur"),
+                onPressed: launch,
+                child: const Text("Launch"),
               )
             ],
           ),
@@ -73,8 +64,8 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  Future launchCaptur() async {
+  Future launch() async {
     listenToCallbacks();
-    await launchChannel.invokeMethod('launchCaptur');
+    await launchChannel.invokeMethod('launchChannel');
   }
 }
